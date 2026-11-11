@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>EcoSort - Statistics</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">🌍 ECOSORT</div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/">Check Waste</a>
+
+            <a href="/statistics">Statistics</a>
+
+            <a href="/">About</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Statistics Page -->
+
+    <div class="container">
+
+        <h1>📊 EcoSort Statistics</h1>
+
+        <p>Overview of the waste items checked by the system.</p>
+
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <h2>{{ total }}</h2>
+                <p>Total Items Checked</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>{{ recyclable }}</h2>
+                <p>Recyclable</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>{{ reusable }}</h2>
+                <p>Reusable</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>{{ biodegradable }}</h2>
+                <p>Biodegradable</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>{{ average_score }}</h2>
+                <p>Average Eco Score</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

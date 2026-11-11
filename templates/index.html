@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>EcoSort - Smart Waste Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVIGATION BAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🌍 ECOSORT
+        </div>
+
+        <div class="nav-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#check">Check Waste</a>
+
+            <a href="#statistics">Statistics</a>
+
+            <a href="#about">About</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= HOME SECTION ================= -->
+
+    <section class="container" id="home">
+
+        <h1>🌍 ECOSORT</h1>
+
+        <h2>
+            Smart Waste Identification & Reuse Assistant
+        </h2>
+
+        <p>
+            Identify your waste and discover better ways
+            to manage it responsibly.
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= CHECK WASTE SECTION ================= -->
+
+    <section class="container" id="check">
+
+        <h2>
+            ♻️ Check Your Waste
+        </h2>
+
+        <p>
+            Enter a waste item to identify its category,
+            reuse possibility and Eco Score.
+        </p>
+
+
+        <form method="POST">
+
+            <label for="waste">
+                Enter waste item:
+            </label>
+
+            <br><br>
+
+            <input
+                type="text"
+                id="waste"
+                name="waste"
+                placeholder="Example: plastic bottle"
+                autocomplete="off"
+                required
+            >
+
+            <br>
+
+            <button type="submit">
+                ♻️ CHECK WASTE
+            </button>
+
+        </form>
+
+
+
+        <!-- ================= RESULT ================= -->
+
+        {% if result %}
+
+        <div class="result">
+
+            <h2>
+                🗑️ Waste Information
+            </h2>
+
+            <p>
+                {{ result | safe }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+
+    <!-- ================= STATISTICS SECTION ================= -->
+
+    <section class="container" id="statistics">
+
+        <h2>
+            📊 EcoSort Statistics
+        </h2>
+
+        <p>
+            Overview of the waste items checked by the system.
+        </p>
+
+
+        <div class="stats-container">
+
+
+            <!-- Total Items -->
+
+            <div class="stat-card">
+
+                <h2>
+                    {{ total }}
+                </h2>
+
+                <p>
+                    Total Items Checked
+                </p>
+
+            </div>
+
+
+
+            <!-- Recyclable -->
+
+            <div class="stat-card">
+
+                <h2>
+                    {{ recyclable }}
+                </h2>
+
+                <p>
+                    ♻️ Recyclable
+                </p>
+
+            </div>
+
+
+
+            <!-- Reusable -->
+
+            <div class="stat-card">
+
+                <h2>
+                    {{ reusable }}
+                </h2>
+
+                <p>
+                    🔄 Reusable
+                </p>
+
+            </div>
+
+
+
+            <!-- Biodegradable -->
+
+            <div class="stat-card">
+
+                <h2>
+                    {{ biodegradable }}
+                </h2>
+
+                <p>
+                    🌱 Biodegradable
+                </p>
+
+            </div>
+
+
+
+            <!-- Average Eco Score -->
+
+            <div class="stat-card">
+
+                <h2>
+                    {{ average_score }}
+                </h2>
+
+                <p>
+                    🌍 Average Eco Score
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= ABOUT SECTION ================= -->
+
+    <section class="container" id="about">
+
+        <h2>
+            🌱 About EcoSort
+        </h2>
+
+        <p>
+            EcoSort is a smart waste identification and reuse
+            assistant designed to help users understand how
+            different waste materials can be managed responsibly.
+        </p>
+
+        <p>
+            The system classifies waste, provides reuse suggestions,
+            records waste history and calculates an Eco Score.
+        </p>
+
+    </section>
+
+
+
+</body>
+
+</html>
